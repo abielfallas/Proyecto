@@ -1,6 +1,8 @@
 
 package Clases;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sugei
@@ -18,7 +20,12 @@ public class Persona {
     }
 
     public void setCedula(int cedula) {
+        if (cedula < 0){
+            this.cedula = this.cedula;
+            JOptionPane.showMessageDialog(null,"Ingrese el número de cédula");
+        }else{
         this.cedula = cedula;
+        }
     }
 
     public String getNombre() {
