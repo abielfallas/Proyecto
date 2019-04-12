@@ -5,6 +5,17 @@ package Clases;
  *
  * @author Abiel Fallas
  */
-public class Pacientes {
+public class Pacientes extends Persona{
      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

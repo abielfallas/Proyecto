@@ -14,8 +14,8 @@ public class Pruebas {
         
         Persona prn = new Persona();
         
-        prn.setCedula(-10);
-        
+        //prn.setCedula(504190708);
+        prn.setNombre("Suge");
     }
     
 }

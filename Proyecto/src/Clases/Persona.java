@@ -1,4 +1,3 @@
-
 package Clases;
 
 import javax.swing.JOptionPane;
@@ -8,7 +7,7 @@ import javax.swing.JOptionPane;
  * @author sugei
  */
 public class Persona {
-    
+
     private int cedula;
     private String nombre;
     private String fechaNto;
@@ -20,12 +19,16 @@ public class Persona {
     }
 
     public void setCedula(int cedula) {
-        if (cedula < 0){
-            this.cedula = this.cedula;
-            JOptionPane.showMessageDialog(null,"Ingrese el número de cédula");
+        
+        int cont = Integer.toString(cedula).length();
+                
+        if (cont == 9) {
+            this.cedula = cedula;
         }else{
-        this.cedula = cedula;
+            this.cedula = this.cedula;
+            JOptionPane.showMessageDialog(null, "*No se permiten números negativos \n *La cédula debe constar de 9 carecteres");
         }
+       
     }
 
     public String getNombre() {
@@ -33,7 +36,14 @@ public class Persona {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        int cont = nombre.length();
+        
+        if (cont >=1 & cont <=10) {
+            this.nombre = nombre;
+        }else
+            this.nombre = this.nombre;
+            JOptionPane.showMessageDialog(null,"El nombre debe constar de al menos un caracter y un máximo de 60");
+
     }
 
     public String getFechaNto() {
@@ -59,8 +69,5 @@ public class Persona {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    
-    
-    
-    
+
 }
