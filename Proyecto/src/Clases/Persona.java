@@ -59,7 +59,14 @@ public class Persona {
     }
 
     public void setTelefono(int telefono) {
-        this.telefono = telefono;
+        int cont = Integer.toString(telefono).length();
+                
+        if (cont == 8) {
+            this.telefono = telefono;
+        }else{
+            this.telefono = this.telefono;
+            JOptionPane.showMessageDialog(null, "*No se permiten números negativos \n *el teléfono debe constar de 8 carecteres");
+        }
     }
 
     public String getCorreo() {

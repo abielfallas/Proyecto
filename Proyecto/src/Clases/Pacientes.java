@@ -7,7 +7,11 @@ package Clases;
  */
 public class Pacientes extends Persona{
      
-    
+    public void calcularEdad(){
+        
+        
+    }
+            
     
     
     
