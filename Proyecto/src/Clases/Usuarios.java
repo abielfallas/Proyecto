@@ -5,7 +5,6 @@
  */
 package Clases;
 
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,25 +15,27 @@ public class Usuarios extends Persona {
     private String contrasena;
     private String tipo;
 
-    public String getUsuario() {
-        return usuario;
+    public Usuarios(String usuario, String contrasena, String tipo, int cedula, String nombre, String fechaNto, int telefono, String correo) {
+        super(cedula, nombre, fechaNto, telefono, correo);
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+        this.tipo = tipo;
     }
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
+    public String getUsuario() {
+        return usuario;
+    }
+    
     public String getContrasena() {
         return contrasena;
     }
 
     public void setContrasena(String contra) {
-        if (contra.length()==8) {
             this.contrasena = contra;
-        }else{
-            JOptionPane.showMessageDialog(null, "La contraseña debe tener 8 caracteres");
-        }
-        
     }
 
     public String getTipo() {

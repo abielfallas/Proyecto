@@ -13,6 +13,14 @@ public class Persona {
     private int telefono;
     private String correo;
 
+    public Persona(int cedula, String nombre, String fechaNto, int telefono, String correo) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.fechaNto = fechaNto;
+        this.telefono = telefono;
+        this.correo = correo;
+    }
+
     public int getCedula() {
         return cedula;
     }
