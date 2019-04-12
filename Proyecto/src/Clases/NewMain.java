@@ -5,6 +5,8 @@
  */
 package Clases;
 
+import Controladores.CtrlUsuarios;
+
 /**
  *
  * @author Abiel Fallas
@@ -15,10 +17,7 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        for (int i = 0; i < 32; i++) {
-            System.out.println(i);
-        }
+        // TODO code application logic her
     }
     
 }

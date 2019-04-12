@@ -6,6 +6,7 @@
 package Controladores;
 
 import Clases.Conexion;
+import Clases.Persona;
 import Clases.Usuarios;
 import Frames.frmRegistroUsuarios;
 
@@ -30,7 +31,7 @@ public void registrar(){
         
         Conexion con = new Conexion("Insert into usuarios values(?,?,?,?,?,?,?,?)");
         
-        con.ejecutar(new Object[]{us.getCedula(),us.getNombre(),us.getFechaNto(),us.getTelefono(),us.getCorreo(),us.getUsuario(),us.getContrasena()
+        con.ejecutarS(new Object[]{us.getCedula(),us.getNombre(),us.getFechaNto(),us.getTelefono(),us.getCorreo(),us.getUsuario(),us.getContrasena()
         ,us.getTipo()});
     }
     
@@ -39,8 +40,14 @@ public void actualizar(){
         
         Conexion con = new Conexion("UPDATE usuarios SET nombre=?, fecha=?, telefono=?, correo=?, usuario=?, contrasena=?,tipo=? WHERE cedula='"+frm.getTxtcedula().getText()+"'");
         
-        con.ejecutar(new Object[]{us.getCedula(),us.getNombre(),us.getFechaNto(),us.getTelefono(),us.getCorreo(),us.getUsuario(),us.getContrasena()
+        con.ejecutarDUI(new Object[]{us.getNombre(),us.getFechaNto(),us.getTelefono(),us.getCorreo(),us.getUsuario(),us.getContrasena()
         ,us.getTipo()});
     }
 
+public void eliminar(){
+    this.us=new Usuarios(Integer.parseInt(frm.getTxtcedula().getText()));
+        Conexion con = new Conexion("DELETE FROM usuarios WHERE cedula='"+us.getCedula()+"'");
+        
+        con.ejecutarUpdate();
+}
 }

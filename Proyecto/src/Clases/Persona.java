@@ -21,6 +21,10 @@ public class Persona {
         this.correo = correo;
     }
 
+    public Persona(int cedula) {
+        this.cedula = cedula;
+    }
+
     public int getCedula() {
         return cedula;
     }
@@ -60,8 +64,5 @@ public class Persona {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    
-    
-    
-    
+      
 }

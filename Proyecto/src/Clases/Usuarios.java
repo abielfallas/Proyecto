@@ -5,6 +5,8 @@
  */
 package Clases;
 
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -18,10 +20,14 @@ public class Usuarios extends Persona {
     public Usuarios(String usuario, String contrasena, String tipo, int cedula, String nombre, String fechaNto, int telefono, String correo) {
         super(cedula, nombre, fechaNto, telefono, correo);
         this.usuario = usuario;
-        this.contrasena = contrasena;
+        this.setContrasena(contrasena);
         this.tipo = tipo;
     }
 
+    public Usuarios(int cedula) {
+        super(cedula);
+    }
+    
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
@@ -31,12 +37,18 @@ public class Usuarios extends Persona {
     }
     
     public String getContrasena() {
-        return contrasena;
+        if (this.contrasena.length()==8) {
+             return contrasena;
+        }else{
+            JOptionPane.showMessageDialog(null, "Nopeeee"); 
+            return null;
+        }   
     }
 
     public void setContrasena(String contra) {
             this.contrasena = contra;
-    }
+        }
+            
 
     public String getTipo() {
         return tipo;

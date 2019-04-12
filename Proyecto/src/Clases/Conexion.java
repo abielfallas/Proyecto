@@ -5,6 +5,7 @@
  */
 package Clases;
 
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -84,13 +86,31 @@ public class Conexion {
             }
             return true;
         } catch (SQLException ex) {
+            
+        }
+        return false;
+    }
+    
+    public boolean ejecutarUpdate(){
+        try {
+            if (this.sentencia.executeUpdate()>1) {
+                this.datos=this.sentencia.getResultSet();
+            }
+            return true;
+        } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
-    public boolean ejecutar(Object[] param) {
+    
+    public boolean ejecutarS(Object[] param) {
         this.setParametro(param);
         return this.ejecutar();
+    }
+    
+    public boolean ejecutarDUI(Object[] param){
+        this.setParametro(param);
+        return this.ejecutarUpdate();
     }
     
         public boolean ejecutarU(Object[] param) {
