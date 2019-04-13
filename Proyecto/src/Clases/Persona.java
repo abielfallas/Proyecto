@@ -43,7 +43,7 @@ public class Persona {
             this.cedula = cedula;
         } else {
             this.cedula = this.cedula;
-            JOptionPane.showMessageDialog(null, "*No se permiten números negativos \n *La cédula debe constar de 9 carecteres");
+            JOptionPane.showMessageDialog(null, "*No se permiten números negativos \n *La cédula debe constar de 9 caracteres");
         }
 
     }
