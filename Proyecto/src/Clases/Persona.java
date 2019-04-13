@@ -1,5 +1,7 @@
 package Clases;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,21 +28,24 @@ public class Persona {
         this.cedula = cedula;
     }
 
+    public Persona() {
+    }
+
     public int getCedula() {
         return cedula;
     }
 
     public void setCedula(int cedula) {
-        
+
         int cont = Integer.toString(cedula).length();
-                
+
         if (cont == 9) {
             this.cedula = cedula;
-        }else{
+        } else {
             this.cedula = this.cedula;
             JOptionPane.showMessageDialog(null, "*No se permiten números negativos \n *La cédula debe constar de 9 carecteres");
         }
-       
+
     }
 
     public String getNombre() {
@@ -49,12 +54,13 @@ public class Persona {
 
     public void setNombre(String nombre) {
         int cont = nombre.length();
-        
-        if (cont >=1 & cont <=10) {
+
+        if (cont >= 1 & cont <= 10) {
             this.nombre = nombre;
-        }else
+        } else {
             this.nombre = this.nombre;
-            JOptionPane.showMessageDialog(null,"El nombre debe constar de al menos un caracter y un máximo de 60");
+        }
+        JOptionPane.showMessageDialog(null, "El nombre debe constar de al menos un caracter y un máximo de 60");
 
     }
 
@@ -72,12 +78,12 @@ public class Persona {
 
     public void setTelefono(int telefono) {
         int cont = Integer.toString(telefono).length();
-                
+
         if (cont == 8) {
             this.telefono = telefono;
-        }else{
+        } else {
             this.telefono = this.telefono;
-            JOptionPane.showMessageDialog(null, "*No se permiten números negativos \n *el teléfono debe constar de 8 carecteres");
+            JOptionPane.showMessageDialog(null, "*No se permiten números negativos \n *El teléfono debe constar de 8 carecteres");
         }
     }
 
@@ -86,6 +92,15 @@ public class Persona {
     }
 
     public void setCorreo(String correo) {
-        this.correo = correo;
+
+
+        if (correo.contains("@hotmail.com") || correo.contains("@gmail.com")) {
+            this.correo = correo;
+
+        }else{
+            this.correo = this.correo;
+            JOptionPane.showMessageDialog(null, "*Correo inválido \n *Solo se permiten correos 'gmail' o 'hotmail'");
+        }
+
     }
 }
