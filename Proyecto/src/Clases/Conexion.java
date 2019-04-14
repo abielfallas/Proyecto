@@ -23,24 +23,32 @@ public class Conexion {
     private static Connection conexion;
     private ResultSet datos;
     private PreparedStatement sentencia;
-    private String ip;
-    private String nombre;
-    private String usuario;
-    private String contrasena;
+    private static String ip;
+    private static String nombre;
+    private static String usuario;
+    private static String contrasena;
+
+    public Conexion(String ip, String nombre, String usuario, String contrasena) {
+        this.ip = ip;
+        this.nombre = nombre;
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+        this.conectar();
+    }
+    
     
         public Conexion() {
         this.conectar();
     }
     
       public Conexion(String sql) {
-        this.conectar();
         this.setSentencia(sql);
     }
     
     public boolean conectar(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            this.conexion=DriverManager.getConnection("jdbc:mysql://"+this.getIp()+"/"+this.getNombre()+"?useServerPrepStmts=true", this.getUsuario(), this.getContrasena());
+            this.conexion=DriverManager.getConnection("jdbc:mysql://"+this.ip+"/"+this.nombre+"?useServerPrepStmts=true", this.usuario, this.contrasena);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -127,37 +135,6 @@ public class Conexion {
         return true;
     }
 
-    public String getIp() {
-        return ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
         
 
 }

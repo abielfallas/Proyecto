@@ -6,8 +6,10 @@
 package Frames;
 
 
+import Controladores.*;
 import Controladores.CtrlUsuarios;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -17,6 +19,7 @@ import javax.swing.JTextField;
  */
 public class frmRegistroUsuarios extends javax.swing.JFrame {
     CtrlUsuarios controlador; 
+    CtrlIni ini;
    /**
      * Creates new form Usuarios
      */
@@ -176,7 +179,11 @@ public class frmRegistroUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcedulaActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-     controlador.registrar();
+        if (ini.ConectarBD()==true) {
+            controlador.registrar();
+        }else
+            JOptionPane.showMessageDialog(this, "No:(");
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void txtcedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyTyped

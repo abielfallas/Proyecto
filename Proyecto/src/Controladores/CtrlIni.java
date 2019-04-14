@@ -21,19 +21,19 @@ import java.util.logging.Logger;
  */
 public class CtrlIni {
     
-    
-    public boolean Conectar(){
+    public static boolean ConectarBD(){
         Properties p=new Properties();
         InputStream isArchivo;
         
         try {
-            isArchivo= new FileInputStream("C:\\Users\\Abiel Fallas\\Desktop\\Proyecto\\Proyecto\\src\\Ini");
+            isArchivo= new FileInputStream("C:\\Users\\Abiel Fallas\\Desktop\\Abiel\\DD\\Proyecto\\Proyecto\\src\\Ini\\Archivo.properties");
             p.load(isArchivo);
             p.setProperty("IP", "127.0.0.1");
             p.setProperty("Nombre", "consultorio");
             p.setProperty("Usuario", "Java");
             p.setProperty("Contrasena", "123");
-            p.store(new FileWriter("C:\\Users\\Abiel Fallas\\Desktop\\Proyecto\\Proyecto\\src\\Ini"),"Se actulizo");
+            p.store(new FileWriter("C:\\Users\\Abiel Fallas\\Desktop\\Abiel\\DD\\Proyecto\\Proyecto\\src\\Ini\\Archivo.properties"),"Se actulizo");
+            Conexion c= new Conexion(p.getProperty("IP"), p.getProperty("Nombre"), p.getProperty("Usuario"), p.getProperty("Contrasena"));
             return true;
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CtrlIni.class.getName()).log(Level.SEVERE, null, ex);
