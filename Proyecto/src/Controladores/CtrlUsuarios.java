@@ -9,6 +9,7 @@ import Clases.Conexion;
 import Clases.Persona;
 import Clases.Usuarios;
 import Frames.frmRegistroUsuarios;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,9 +24,7 @@ public class CtrlUsuarios {
         this.us = us;
     }
 
-  
-
-    
+     
 public void registrar(){
         this.us=new Usuarios(frm.getTxtusuario().getText(),frm.getTxtcontrasena().getText(),frm.getTipo(),Integer.parseInt(frm.getTxtcedula().getText()),frm.getTxtnombre().getText(),frm.getFecha(),Integer.parseInt(frm.getTxttelefono().getText()),frm.getTxtcorreo().getText());
         
@@ -50,4 +49,5 @@ public void eliminar(){
         
         con.ejecutarUpdate();
 }
+
 }

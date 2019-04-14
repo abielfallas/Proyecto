@@ -23,6 +23,10 @@ public class Conexion {
     private static Connection conexion;
     private ResultSet datos;
     private PreparedStatement sentencia;
+    private String ip;
+    private String nombre;
+    private String usuario;
+    private String contrasena;
     
         public Conexion() {
         this.conectar();
@@ -36,7 +40,7 @@ public class Conexion {
     public boolean conectar(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            this.conexion=DriverManager.getConnection("jdbc:mysql://127.0.0.1/consultorio?useServerPrepStmts=true", "java", "123");
+            this.conexion=DriverManager.getConnection("jdbc:mysql://"+this.getIp()+"/"+this.getNombre()+"?useServerPrepStmts=true", this.getUsuario(), this.getContrasena());
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -83,10 +87,10 @@ public class Conexion {
         try {
             if (this.sentencia.execute()) {
                 this.datos=this.sentencia.getResultSet();
+                return true;
             }
-            return true;
         } catch (SQLException ex) {
-            
+            JOptionPane.showMessageDialog(null, "El número de cedula o nombre de usuario ya existen");
         }
         return false;
     }
@@ -122,4 +126,38 @@ public class Conexion {
         }
         return true;
     }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+        
+
 }

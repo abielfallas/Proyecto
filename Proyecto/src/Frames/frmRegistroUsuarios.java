@@ -67,6 +67,12 @@ public class frmRegistroUsuarios extends javax.swing.JFrame {
             }
         });
 
+        txtusuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtusuarioActionPerformed(evt);
+            }
+        });
+
         btnAgregar.setText("Registrar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,6 +205,10 @@ public class frmRegistroUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         controlador.eliminar();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtusuarioActionPerformed
 
     /**
      * @param args the command line arguments

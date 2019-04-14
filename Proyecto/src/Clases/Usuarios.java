@@ -37,19 +37,17 @@ public class Usuarios extends Persona {
     }
     
     public String getContrasena() {
-        if (this.contrasena.length()==8) {
-             return contrasena;
-        }else{
-            JOptionPane.showMessageDialog(null, "Nopeeee"); 
-            return null;
-        }   
+        return contrasena;
     }
 
     public void setContrasena(String contra) {
-            this.contrasena = contra;
+        if (contra.length()>8 && contra.length()<=32) {
+             this.contrasena = contra;
+        }else{
+           JOptionPane.showMessageDialog(null, "La Contraseña debe contener 8 caracteres como minimo y 32 como maximo");
         }
+    }
             
-
     public String getTipo() {
         return tipo;
     }
@@ -58,4 +56,5 @@ public class Usuarios extends Persona {
         this.tipo = tipo;
     }
 
+    
 }
