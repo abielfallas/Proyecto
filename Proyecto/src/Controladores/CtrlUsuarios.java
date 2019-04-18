@@ -8,7 +8,7 @@ package Controladores;
 import Clases.Conexion;
 import Clases.Persona;
 import Clases.Usuarios;
-import Frames.frmRegistroUsuarios;
+import Frames.frmRegistro;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,10 +16,10 @@ import javax.swing.JOptionPane;
  * @author Abiel Fallas
  */
 public class CtrlUsuarios {
-    private frmRegistroUsuarios frm;
+    private frmRegistro frm;
     private Usuarios us;
 
-    public CtrlUsuarios(frmRegistroUsuarios frm) {
+    public CtrlUsuarios(frmRegistro frm) {
         this.frm = frm;
         this.us = us;
     }
