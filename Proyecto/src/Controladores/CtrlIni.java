@@ -6,6 +6,7 @@
 package Controladores;
 
 import Clases.Conexion;
+import Frames.FrmConfig;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -20,20 +21,22 @@ import java.util.logging.Logger;
  * @author Abiel Fallas
  */
 public class CtrlIni {
-    
-    public static boolean ConectarBD(){
-        Properties p=new Properties();
+
+    private FrmConfig frm;
+
+    public static boolean ConectarBD() {
+        Properties p = new Properties();
         InputStream isArchivo;
-        
+
         try {
-            isArchivo= new FileInputStream("C:\\Users\\Abiel Fallas\\Desktop\\Abiel\\DD\\Proyecto\\Proyecto\\src\\Ini\\Archivo.properties");
+            isArchivo = new FileInputStream("C:\\Users\\Abiel Fallas\\Desktop\\Abiel\\DD\\Proyecto\\Proyecto\\src\\Ini\\Archivo.properties");
             p.load(isArchivo);
             p.setProperty("IP", "127.0.0.1");
             p.setProperty("Nombre", "consultorio");
             p.setProperty("Usuario", "Java");
             p.setProperty("Contrasena", "123");
-            p.store(new FileWriter("C:\\Users\\Abiel Fallas\\Desktop\\Abiel\\DD\\Proyecto\\Proyecto\\src\\Ini\\Archivo.properties"),"Se actulizo");
-            Conexion c= new Conexion(p.getProperty("IP"), p.getProperty("Nombre"), p.getProperty("Usuario"), p.getProperty("Contrasena"));
+            p.store(new FileWriter("C:\\Users\\Abiel Fallas\\Desktop\\Abiel\\DD\\Proyecto\\Proyecto\\src\\Ini\\Archivo.properties"), "Se actulizo");
+            Conexion c = new Conexion(p.getProperty("IP"), p.getProperty("Nombre"), p.getProperty("Usuario"), p.getProperty("Contrasena"));
             return true;
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CtrlIni.class.getName()).log(Level.SEVERE, null, ex);
@@ -43,6 +46,15 @@ public class CtrlIni {
             return false;
         }
     }
+
+    public CtrlIni(FrmConfig frm) {
+        this.frm = frm;
+    }
     
-    
+    public void validar(){
+        if (frm.txtIP.getText().equals("") || frm.txtUsuario.getText().equals("")) {
+            
+        }
+    }
+
 }

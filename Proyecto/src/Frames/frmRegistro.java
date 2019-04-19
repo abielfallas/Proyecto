@@ -5,6 +5,7 @@
  */
 package Frames;
 
+import Clases.Usuarios;
 import Controladores.CtrlUsuarios;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -18,11 +19,13 @@ import javax.swing.JTextField;
 public class frmRegistro extends javax.swing.JInternalFrame {
 
     CtrlUsuarios controlador;
+    Usuarios us;
 
     public frmRegistro() {
         initComponents();
+
         controlador = new CtrlUsuarios(this);
-      
+
     }
 
     /**
@@ -160,17 +163,6 @@ public class frmRegistro extends javax.swing.JInternalFrame {
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel13.setText("Contraseña:");
-
-        jContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jContraseñaActionPerformed(evt);
-            }
-        });
-        jContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jContraseñaKeyTyped(evt);
-            }
-        });
 
         tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medico", "Secretaria" }));
         tipo.addActionListener(new java.awt.event.ActionListener() {
@@ -310,7 +302,7 @@ public class frmRegistro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtcedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyTyped
-        // TODO add your handling code here:
+       
         char c = evt.getKeyChar();
         if (c < '0' || c > '9') {
             evt.consume();
@@ -341,15 +333,8 @@ public class frmRegistro extends javax.swing.JInternalFrame {
 
     private void txtusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuarioActionPerformed
 
+
     }//GEN-LAST:event_txtusuarioActionPerformed
-
-    private void jContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jContraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jContraseñaActionPerformed
-
-    private void jContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jContraseñaKeyTyped
-
-    }//GEN-LAST:event_jContraseñaKeyTyped
 
     private void tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoActionPerformed
         if (tipo.getSelectedIndex() == 0) {
@@ -366,6 +351,7 @@ public class frmRegistro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tipoActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        controlador.validar();
         controlador.registrar();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -376,7 +362,7 @@ public class frmRegistro extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> dia;
     private javax.swing.JComboBox<String> especialidad;
     private javax.swing.JLabel jCodMed;
-    private javax.swing.JPasswordField jContraseña;
+    public javax.swing.JPasswordField jContraseña;
     private javax.swing.JLabel jEspecialidad;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
