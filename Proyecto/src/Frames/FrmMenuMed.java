@@ -1,15 +1,29 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Frames;
 
 /**
  *
  * @author Karina
  */
-public class FrmMenu extends javax.swing.JDialog {
+public class FrmMenuMed extends javax.swing.JDialog {
 
     /**
-     * Creates new form FrmMenu
+     * Creates new form FrmMenuMed
      */
-    public FrmMenu(java.awt.Frame parent, boolean modal) {
+    
+    private frmRegistro frm;
+
+    public FrmMenuMed(frmRegistro frm) {
+        this.frm = frm;
+    }
+    
+    
+    
+    public FrmMenuMed(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -23,9 +37,6 @@ public class FrmMenu extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -34,24 +45,9 @@ public class FrmMenu extends javax.swing.JDialog {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jCitas = new javax.swing.JMenu();
-        jRegistrarCita = new javax.swing.JMenuItem();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jListaPacientes = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jRegistrar = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jRegistrarPacientes = new javax.swing.JMenuItem();
-
-        jRadioButtonMenuItem1.setSelected(true);
-        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
-
-        jMenuItem1.setText("jMenuItem1");
-
-        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Centro Medico");
-        setResizable(false);
 
         jDesktopPane1.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -73,7 +69,7 @@ public class FrmMenu extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(204, 204, 204)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 405, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
@@ -114,7 +110,7 @@ public class FrmMenu extends javax.swing.JDialog {
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 728, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 500, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
@@ -126,16 +122,6 @@ public class FrmMenu extends javax.swing.JDialog {
 
         jCitas.setText("Citas");
         jCitas.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-
-        jRegistrarCita.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jRegistrarCita.setText("Registar Cita");
-        jRegistrarCita.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRegistrarCitaActionPerformed(evt);
-            }
-        });
-        jCitas.add(jRegistrarCita);
-        jCitas.add(jSeparator2);
 
         jListaPacientes.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jListaPacientes.setText("Lista de Pacientes");
@@ -149,30 +135,6 @@ public class FrmMenu extends javax.swing.JDialog {
         jMenu2.add(jCitas);
 
         jMenuBar1.add(jMenu2);
-
-        jMenu1.setText("Registro");
-        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-
-        jRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jRegistrar.setText("Personal");
-        jRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRegistrarActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jRegistrar);
-        jMenu1.add(jSeparator1);
-
-        jRegistrarPacientes.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jRegistrarPacientes.setText("Pacientes");
-        jRegistrarPacientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRegistrarPacientesActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jRegistrarPacientes);
-
-        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -191,30 +153,12 @@ public class FrmMenu extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRegistrarActionPerformed
-        frmRegistro reg = new frmRegistro();
-        this.jDesktopPane1.add(reg);
-        reg.setVisible(true);
-    }//GEN-LAST:event_jRegistrarActionPerformed
-
-    private void jRegistrarPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRegistrarPacientesActionPerformed
-        FrmRegistroPacientes regP = new FrmRegistroPacientes();
-        this.jDesktopPane1.add(regP);
-        regP.setVisible(true);
-    }//GEN-LAST:event_jRegistrarPacientesActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jRegistrarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRegistrarCitaActionPerformed
-       FrmRegistrarCita rc = new FrmRegistrarCita();
-       this.jDesktopPane1.add(rc);
-       rc.setVisible(true);
-    }//GEN-LAST:event_jRegistrarCitaActionPerformed
-
     private void jListaPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jListaPacientesActionPerformed
-      
+
     }//GEN-LAST:event_jListaPacientesActionPerformed
 
     /**
@@ -234,21 +178,20 @@ public class FrmMenu extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMenuMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMenuMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMenuMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMenuMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FrmMenu dialog = new FrmMenu(new javax.swing.JFrame(), true);
+                FrmMenuMed dialog = new FrmMenuMed(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -267,17 +210,9 @@ public class FrmMenu extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuItem jListaPacientes;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
-    private javax.swing.JMenuItem jRegistrar;
-    private javax.swing.JMenuItem jRegistrarCita;
-    private javax.swing.JMenuItem jRegistrarPacientes;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JPopupMenu.Separator jSeparator2;
     // End of variables declaration//GEN-END:variables
+
 }

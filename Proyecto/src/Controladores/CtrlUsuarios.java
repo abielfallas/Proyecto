@@ -55,7 +55,6 @@ public class CtrlUsuarios {
         if (frm.txtcedula.getText().equals("") || frm.txtcorreo.getText().equals("")||
                 frm.txtnombre.getText().equals("")||frm.txttelefono.getText().equals("")||frm.txtusuario.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "No se puede dejar espacios en blanco");
-        }
-        
+        }     
     }
 }

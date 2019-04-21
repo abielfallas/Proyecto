@@ -17,9 +17,11 @@ public class FrmConfig extends javax.swing.JFrame {
 
     CtrlIni ini;
     
+
     public FrmConfig() {
         initComponents();
         ini = new CtrlIni(this);
+
     }
 
     /**
@@ -151,11 +153,13 @@ public class FrmConfig extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectarActionPerformed
         
-        (new FrmMenu(this, true)).setVisible(true);
+        
+        (new FrmInicioSe(this,true)).setVisible(true);
     }//GEN-LAST:event_btnConectarActionPerformed
 
     /**
@@ -210,9 +214,7 @@ public class FrmConfig extends javax.swing.JFrame {
     public JPasswordField getTxtcontrasena() {
         return jContraseña;
     }
-    
-    
-    
+
     public JTextField getTxtIP() {
         return txtIP;
     }
@@ -220,5 +222,5 @@ public class FrmConfig extends javax.swing.JFrame {
     public JTextField getTxtUsuario() {
         return txtUsuario;
     }
-    
+
 }
